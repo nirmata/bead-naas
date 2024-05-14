@@ -11,4 +11,4 @@ spec:
     targetRevision: HEAD
   destination:
     name: ${{ values.cluster_id }}
-    namespace: default
+    namespace: ${{ values.application_namespace }}

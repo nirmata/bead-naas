@@ -21,6 +21,10 @@ spec:
           title: Application Name
           type: string
           description: The name of the application to deploy
+        namespace:
+          title: Application Namespace
+          type: string
+          description: The namespace of the application to deploy
         application_source:
           title: Application Source
           type: string
@@ -64,6 +68,7 @@ spec:
         values:
           cluster_id: ${{ parameters.cluster_id | parseEntityRef | pick('name') }}
           application_name: ${{ parameters.name }}
+          application_namespace: ${{ parameters.namespace }}
           application_source: ${{ parameters.application_source }}
           application_source_path: ${{ parameters.application_source_path }}
     - id: publish
@@ -74,6 +79,7 @@ spec:
         title: Request for new application deployment
         description: |
           Cluster ID:         ${{ parameters.cluster_id }}
+          Namespace:          ${{ parameters.namespace }}
           Application Source: ${{ parameters.application_source }}
         repoUrl: ${{ parameters.repo_url }}
         branchName: ${{ parameters.pull_request_branch_name }}
