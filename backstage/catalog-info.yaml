@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  # TODO: rename
+  name: bead-naas
+  description: A BACK Stack Bead providing Namespace-as-a-Service
+spec:
+  targets:
+    - ./catalog/templates/template.yaml
